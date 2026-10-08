@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper &amp; ink — design system</title>
+    <meta name="theme-color" content="#f5f2ea" />
+    <link rel="icon" href="../brand/favicon-lb.svg" type="image/svg+xml" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <a class="ds-skip-link" href="#main">Skip to content</a>
+
+    <header class="ds-header">
+      <div class="ds-header__inner">
+        <a class="ds-wordmark" href="#top">
+          <span class="ds-wordmark__full">Paper &amp; ink</span
+          ><span class="ds-wordmark__mark" aria-hidden="true">P&amp;I</span
+          ><span class="ds-wordmark__dot" aria-hidden="true">.</span>
+        </a>
+        <nav class="ds-nav" aria-label="Sections">
+          <a href="#color">Color</a>
+          <a href="#type">Type</a>
+          <a href="#components">Components</a>
+          <button class="ds-theme-toggle" type="button"></button>
+          <a class="ds-button doc__home" href="https://lucabonaldo.dev">lucabonaldo.dev</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="doc">
+      <div class="doc__intro" id="top">
+        <p class="ds-overline">@lucabonaldo/design</p>
+        <h1>Paper &amp; ink<span class="ds-accent">.</span></h1>
+        <p>
+          The design system shared by lucabonaldo.dev, Flaplab, FumbleChess and Prologez. Warm
+          paper, ink type and one vermilion accent. Toggle the theme in the header to check every
+          token and component in both modes.
+        </p>
+      </div>
+
+      <section id="color" class="ds-reveal">
+        <p class="ds-overline">01</p>
+        <h2>Color</h2>
+        <h3>Palette: fixed brand colors</h3>
+        <ul class="swatches" id="palette"></ul>
+        <h3>Roles: what components use; themes reassign these</h3>
+        <ul class="swatches" id="roles"></ul>
+      </section>
+
+      <section id="type" class="ds-reveal">
+        <p class="ds-overline">02</p>
+        <h2>Type</h2>
+        <div class="type-scale">
+          <h1 style="font-size: clamp(2.6rem, 7vw, 5rem); letter-spacing: -0.02em">
+            Fraunces display<span class="ds-accent">.</span>
+          </h1>
+          <h2>Section heading in Fraunces</h2>
+          <h3 style="margin: 0">Row heading — <em>with an italic role</em></h3>
+          <p class="ds-overline">Overline · small caps label</p>
+          <p style="max-width: 38em">
+            Body copy is Inter at 1.0625rem with a 1.65 line height. It holds an
+            <a class="ds-text-link" href="#type">editorial text link</a> that turns vermilion on
+            hover, and <span class="ds-accent">accent text</span> for the odd emphasis.
+          </p>
+          <p style="color: var(--ds-text-soft); max-width: 38em">
+            Secondary text uses --ds-text-soft, for descriptions and notes.
+          </p>
+          <p><code style="font-family: var(--ds-font-mono)">--ds-font-mono: code and data</code></p>
+        </div>
+      </section>
+
+      <section id="components" class="ds-reveal">
+        <p class="ds-overline">03</p>
+        <h2>Components</h2>
+
+        <h3>Buttons</h3>
+        <div class="row">
+          <button class="ds-button ds-button--primary" type="button">Primary</button>
+          <button class="ds-button" type="button">Default</button>
+          <button class="ds-button ds-button--quiet" type="button">Quiet</button>
+          <button class="ds-button" type="button" disabled>Disabled</button>
+          <button class="ds-button ds-button--small" type="button">Small</button>
+          <button class="ds-button ds-button--icon" type="button" aria-label="Add">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <a class="ds-button" href="#components"
+            >Link as button <span aria-hidden="true">↗</span></a
+          >
+        </div>
+
+        <h3>Form fields</h3>
+        <div class="grid-2">
+          <div class="stack">
+            <label class="ds-field">
+              <span class="ds-label">Name</span>
+              <input class="ds-input" type="text" placeholder="Ada Lovelace" />
+            </label>
+            <label class="ds-field">
+              <span class="ds-label">Engine level</span>
+              <select class="ds-input">
+                <option>Beginner</option>
+                <option>Club player</option>
+                <option>Master</option>
+              </select>
+              <span class="ds-hint">Changes how often the engine blunders.</span>
+            </label>
+          </div>
+          <div class="stack">
+            <label class="ds-field">
+              <span class="ds-label">Query</span>
+              <textarea class="ds-input" placeholder="?- member(X, [a, b, c])."></textarea>
+            </label>
+            <label class="ds-field">
+              <span class="ds-label">Email</span>
+              <input class="ds-input" type="email" value="not-an-email" aria-invalid="true" />
+            </label>
+            <label class="ds-check"><input type="checkbox" checked /> Show hints</label>
+          </div>
+        </div>
+
+        <h3>Surfaces</h3>
+        <div class="grid-2">
+          <div class="ds-panel">
+            <p class="ds-overline" style="color: var(--ds-text-soft)">Panel</p>
+            <p>Bordered surface for app sidebars and cards.</p>
+          </div>
+          <div class="ds-panel ds-panel--raised">
+            <p class="ds-overline" style="color: var(--ds-text-soft)">Raised panel</p>
+            <p>Same surface with --ds-shadow, for floating UI.</p>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 1.5rem">
+          <span class="ds-tag">TypeScript</span>
+          <span class="ds-tag">WebAssembly</span>
+          <span class="ds-tag ds-tag--accent">New</span>
+        </div>
+        <div class="stack" style="margin-top: 1.5rem">
+          <p class="ds-notice">Neutral notice for context.</p>
+          <p class="ds-notice ds-notice--ok">All 12 queries succeeded.</p>
+          <p class="ds-notice ds-notice--warn">The engine is still loading.</p>
+          <p class="ds-notice ds-notice--err">Syntax error: operator expected.</p>
+        </div>
+
+        <h3>Dialog</h3>
+        <button class="ds-button" type="button" id="open-dialog">Open dialog</button>
+        <dialog class="ds-dialog" id="demo-dialog">
+          <form method="dialog">
+            <h2 class="ds-dialog__title">Resign the game?</h2>
+            <p>The engine will record it as a win. You can start a new game right after.</p>
+            <div class="ds-dialog__actions">
+              <button class="ds-button ds-button--quiet" value="cancel">Cancel</button>
+              <button class="ds-button ds-button--primary" value="ok">Resign</button>
+            </div>
+          </form>
+        </dialog>
+
+        <h3>Header in an app</h3>
+        <div class="demo-frame">
+          <header class="ds-header ds-header--wide">
+            <div class="ds-header__inner">
+              <a class="ds-wordmark" href="#components"
+                >Prologez<span class="ds-wordmark__dot">.</span></a
+              >
+              <nav class="ds-nav" aria-label="Demo">
+                <a href="#components">Course</a>
+                <a href="#components">Playground</a>
+                <a class="ds-button ds-button--primary ds-button--small" href="#components">Run</a>
+              </nav>
+            </div>
+          </header>
+        </div>
+
+        <h3>Inverse surface and credit</h3>
+        <div class="ds-inverse inverse-demo">
+          <p class="ds-overline" style="color: var(--ds-accent)">05</p>
+          <h3>Tomorrow’s software, together<span class="ds-accent">.</span></h3>
+          <p style="color: var(--ds-text-soft); max-width: 34em">
+            .ds-inverse reassigns the roles, so everything inside it (links, buttons, rules) adapts
+            without extra classes.
+          </p>
+          <div class="row" style="margin-top: 1.5rem">
+            <a class="ds-text-link" href="#components">Text link</a>
+            <button class="ds-button" type="button">Button</button>
+            <button class="ds-button ds-button--primary" type="button">Primary</button>
+          </div>
+          <footer class="ds-footer">
+            <p>© 2026 Luca Bonaldo</p>
+            <a class="ds-credit" href="https://lucabonaldo.dev">Made by <b>Luca Bonaldo</b></a>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

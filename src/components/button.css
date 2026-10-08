@@ -1,0 +1,83 @@
+/* Buttons: the outlined default is the website's CV link; --primary fills
+   with the accent. Works on <button> and <a>. */
+
+@layer ds {
+  .ds-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    min-height: 2.25rem;
+    padding: 0.3rem 0.875rem;
+    border: 1px solid var(--ds-line);
+    border-radius: var(--ds-radius);
+    background: transparent;
+    color: var(--ds-text);
+    font-family: var(--ds-font-text);
+    font-size: var(--ds-text-sm);
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      border-color var(--ds-dur-fast) var(--ds-ease-out),
+      background-color var(--ds-dur-fast) var(--ds-ease-out),
+      color var(--ds-dur-fast) var(--ds-ease-out);
+  }
+
+  .ds-button:hover {
+    border-color: var(--ds-accent);
+    color: var(--ds-accent);
+  }
+
+  .ds-button:disabled,
+  .ds-button[aria-disabled='true'] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .ds-button--primary {
+    border-color: var(--ds-accent-fill);
+    background: var(--ds-accent-fill);
+    color: var(--ds-on-accent);
+  }
+
+  .ds-button--primary:hover {
+    border-color: var(--ds-accent-fill-hover);
+    background: var(--ds-accent-fill-hover);
+    color: var(--ds-on-accent);
+  }
+
+  .ds-button--quiet {
+    border-color: transparent;
+    color: var(--ds-text-soft);
+  }
+
+  .ds-button--quiet:hover {
+    border-color: transparent;
+    background: var(--ds-bg-soft);
+  }
+
+  .ds-button--small {
+    min-height: 1.875rem;
+    padding: 0.2rem 0.625rem;
+    font-size: var(--ds-text-xs);
+  }
+
+  /* square, for a single icon; give it an aria-label */
+  .ds-button--icon {
+    width: 2.25rem;
+    padding: 0;
+  }
+
+  .ds-button--icon.ds-button--small {
+    width: 1.875rem;
+  }
+
+  .ds-button svg {
+    width: 1.125em;
+    height: 1.125em;
+    flex: none;
+  }
+}

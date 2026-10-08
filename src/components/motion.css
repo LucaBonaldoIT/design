@@ -1,0 +1,19 @@
+/* Entrance reveal: add .ds-reveal to elements and call initReveal().
+   Elements only start hidden when JS runs and motion is allowed. */
+
+@layer ds {
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .ds-reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition:
+        opacity var(--ds-dur) var(--ds-ease-out),
+        transform var(--ds-dur) var(--ds-ease-out);
+    }
+
+    html.js .ds-reveal.is-in {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

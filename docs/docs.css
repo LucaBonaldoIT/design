@@ -1,0 +1,130 @@
+/* Specimen page layout only; nothing here belongs to the design system. */
+
+.doc {
+  max-width: var(--ds-max);
+  margin-inline: auto;
+  padding: clamp(3rem, 8vh, 5rem) var(--ds-gutter);
+}
+
+.doc__intro {
+  max-width: 40em;
+  margin-bottom: 3rem;
+}
+
+.doc__intro h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  letter-spacing: -0.02em;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.doc__intro p {
+  color: var(--ds-text-soft);
+}
+
+.doc section {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--ds-line);
+}
+
+.doc h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 1.5rem;
+}
+
+.doc h3 {
+  font-size: 1.15rem;
+  margin: 2rem 0 1rem;
+}
+
+.doc .ds-overline {
+  color: var(--ds-accent);
+  margin-bottom: 0.5rem;
+}
+
+.swatches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.swatch {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 0.75rem;
+  align-items: center;
+  font-size: var(--ds-text-sm);
+}
+
+.swatch__chip {
+  grid-row: span 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--ds-line);
+}
+
+.swatch code {
+  font-family: var(--ds-font-mono);
+  font-size: 0.8rem;
+}
+
+.swatch__value {
+  color: var(--ds-text-soft);
+  font-family: var(--ds-font-mono);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.type-scale > * {
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.demo-frame {
+  border: 1px solid var(--ds-line);
+  overflow: hidden;
+}
+
+.demo-frame .ds-header {
+  position: static;
+}
+
+.inverse-demo {
+  padding: 2.5rem var(--ds-gutter) 0;
+}
+
+.inverse-demo h3 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0 0 1rem;
+}
+
+.inverse-demo .ds-footer {
+  margin-top: 2.5rem;
+  padding-inline: 0;
+}
+
+@media (max-width: 540px) {
+  .doc__home {
+    display: none;
+  }
+}

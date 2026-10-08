@@ -1,0 +1,11 @@
+<!--
+  App icon frame: 64×64, 14px corner radius, vermilion tile on an ink rim.
+  Replace the GLYPH group with the app's mark, in cream (#fff7f0), kept inside x/y 12–52.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#1a1712"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#b02e0c"/>
+  <g id="GLYPH" fill="#fff7f0">
+    <rect x="22" y="22" width="20" height="20"/>
+  </g>
+</svg>

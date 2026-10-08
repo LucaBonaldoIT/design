@@ -1,0 +1,55 @@
+/* Footer line, and the "made by" credit that links back from every app. */
+
+@layer ds {
+  .ds-footer {
+    max-width: var(--ds-max);
+    margin-inline: auto;
+    padding: 1.5rem var(--ds-gutter);
+    border-top: 1px solid var(--ds-line);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    color: var(--ds-text-soft);
+  }
+
+  .ds-footer p {
+    margin: 0;
+  }
+
+  .ds-footer a {
+    text-decoration: none;
+    transition: color var(--ds-dur-fast) var(--ds-ease-out);
+  }
+
+  .ds-footer a:hover {
+    color: var(--ds-accent);
+  }
+
+  .ds-credit {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+    color: var(--ds-text-soft);
+    font-size: 0.8125rem;
+    text-decoration: none;
+    transition: color var(--ds-dur-fast) var(--ds-ease-out);
+  }
+
+  .ds-credit b {
+    font-family: var(--ds-font-display);
+    font-weight: 560;
+    color: var(--ds-text);
+  }
+
+  .ds-credit b::after {
+    content: '.';
+    color: var(--ds-accent);
+  }
+
+  .ds-credit:hover,
+  .ds-credit:hover b {
+    color: var(--ds-accent);
+  }
+}

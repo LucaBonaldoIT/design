@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Paper & ink — tokens
+
+   Two tiers:
+   - palette: raw brand colors. They never change with the theme.
+   - roles:   what components use (--ds-bg, --ds-text, …). Themes and
+              .ds-inverse only reassign roles.
+
+   Theme: html[data-theme='light' | 'dark'], set before first paint by the
+   init script (see theme-init.js). Without it, the system preference applies.
+   ========================================================================== */
+
+@layer ds {
+  :root {
+    /* ---- palette ------------------------------------------------------- */
+    --ds-paper: #f5f2ea;
+    --ds-paper-soft: #eeeade;
+    --ds-paper-raised: #fbf9f4;
+    --ds-ink: #1a1712;
+    --ds-ink-deep: #110f0c;
+    --ds-ink-page: #1c1915;
+    --ds-ink-soft: #221e19;
+    --ds-ink-raised: #29241e;
+    --ds-cream: #f0ecdf;
+    --ds-cream-bright: #fff7f0;
+    --ds-vermilion: #b02e0c;
+    --ds-vermilion-deep: #8f240a;
+    --ds-vermilion-bright: #e0522d;
+    --ds-vermilion-light: #ec6a45;
+
+    /* ---- type ---------------------------------------------------------- */
+    --ds-font-display: 'Fraunces', Georgia, serif;
+    --ds-font-text: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --ds-font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+    --ds-text-xs: 0.78rem;
+    --ds-text-sm: 0.875rem;
+    --ds-text-md: 0.9375rem;
+    --ds-text-base: 1.0625rem;
+    --ds-leading: 1.65;
+    --ds-tracking-caps: 0.09em;
+
+    /* ---- layout -------------------------------------------------------- */
+    --ds-max: 1360px;
+    --ds-gutter: clamp(1.25rem, 4vw, 4rem);
+    --ds-header-h: 3.5rem;
+    --ds-radius: 2px;
+    --ds-radius-lg: 6px;
+
+    /* ---- motion -------------------------------------------------------- */
+    --ds-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ds-dur: 600ms;
+    --ds-dur-fast: 160ms;
+
+    /* ---- roles: light -------------------------------------------------- */
+    --ds-bg: var(--ds-paper);
+    --ds-bg-soft: var(--ds-paper-soft);
+    --ds-surface: var(--ds-paper-raised);
+    --ds-text: var(--ds-ink);
+    --ds-text-soft: rgba(26, 23, 18, 0.64);
+    --ds-line: rgba(26, 23, 18, 0.18);
+    --ds-line-strong: rgba(26, 23, 18, 0.34);
+
+    /* accent for text, icons and rules on --ds-bg */
+    --ds-accent: var(--ds-vermilion);
+    /* accent as a fill (buttons, badges), always paired with --ds-on-accent */
+    --ds-accent-fill: var(--ds-vermilion);
+    --ds-accent-fill-hover: var(--ds-vermilion-deep);
+    --ds-on-accent: var(--ds-cream-bright);
+    --ds-accent-soft: #f4e2da;
+
+    --ds-ok: #2f7a3e;
+    --ds-ok-soft: #e4f1e3;
+    --ds-warn: #8a5a08;
+    --ds-warn-soft: #f8eed6;
+    --ds-err: #b42318;
+    --ds-err-soft: #f9e4e0;
+
+    --ds-shadow: 0 1px 2px rgba(26, 23, 18, 0.06), 0 4px 16px rgba(26, 23, 18, 0.06);
+    --ds-backdrop: rgba(26, 23, 18, 0.42);
+
+    color-scheme: light;
+  }
+
+  /* ---- roles: dark ----------------------------------------------------- */
+  /* Kept in sync with the system-preference fallback below. */
+  :root[data-theme='dark'] {
+    --ds-bg: var(--ds-ink-page);
+    --ds-bg-soft: var(--ds-ink-soft);
+    --ds-surface: var(--ds-ink-raised);
+    --ds-text: var(--ds-cream);
+    --ds-text-soft: rgba(240, 236, 223, 0.64);
+    --ds-line: rgba(240, 236, 223, 0.16);
+    --ds-line-strong: rgba(240, 236, 223, 0.3);
+
+    --ds-accent: var(--ds-vermilion-light);
+    --ds-accent-fill-hover: #c93a15;
+    --ds-accent-soft: #3a1d14;
+
+    --ds-ok: #6fcf86;
+    --ds-ok-soft: #16281a;
+    --ds-warn: #f0c466;
+    --ds-warn-soft: #2e2512;
+    --ds-err: #ff8d82;
+    --ds-err-soft: #3a1b19;
+
+    --ds-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+    --ds-backdrop: rgba(0, 0, 0, 0.6);
+
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      --ds-bg: var(--ds-ink-page);
+      --ds-bg-soft: var(--ds-ink-soft);
+      --ds-surface: var(--ds-ink-raised);
+      --ds-text: var(--ds-cream);
+      --ds-text-soft: rgba(240, 236, 223, 0.64);
+      --ds-line: rgba(240, 236, 223, 0.16);
+      --ds-line-strong: rgba(240, 236, 223, 0.3);
+
+      --ds-accent: var(--ds-vermilion-light);
+      --ds-accent-fill-hover: #c93a15;
+      --ds-accent-soft: #3a1d14;
+
+      --ds-ok: #6fcf86;
+      --ds-ok-soft: #16281a;
+      --ds-warn: #f0c466;
+      --ds-warn-soft: #2e2512;
+      --ds-err: #ff8d82;
+      --ds-err-soft: #3a1b19;
+
+      --ds-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+      --ds-backdrop: rgba(0, 0, 0, 0.6);
+
+      color-scheme: dark;
+    }
+  }
+
+  /* ---- inverse surface ------------------------------------------------- */
+  /* An ink block on the page (e.g. a contact section): one step darker than
+     the dark page, so it still reads as its own surface in both themes. */
+  .ds-inverse {
+    --ds-bg: var(--ds-ink);
+    --ds-bg-soft: var(--ds-ink-soft);
+    --ds-surface: var(--ds-ink-raised);
+    --ds-text: var(--ds-cream);
+    --ds-text-soft: rgba(240, 236, 223, 0.62);
+    --ds-line: rgba(240, 236, 223, 0.22);
+    --ds-line-strong: rgba(240, 236, 223, 0.36);
+    --ds-accent: var(--ds-vermilion-bright);
+
+    background: var(--ds-bg);
+    color: var(--ds-text);
+    color-scheme: dark;
+  }
+
+  :root[data-theme='dark'] .ds-inverse {
+    --ds-bg: var(--ds-ink-deep);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .ds-inverse {
+      --ds-bg: var(--ds-ink-deep);
+    }
+  }
+}

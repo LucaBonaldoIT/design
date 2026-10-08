@@ -1,0 +1,8 @@
+/* Paper & ink — components. All classes are prefixed .ds-. */
+@import './components/text.css';
+@import './components/button.css';
+@import './components/form.css';
+@import './components/surface.css';
+@import './components/header.css';
+@import './components/footer.css';
+@import './components/motion.css';

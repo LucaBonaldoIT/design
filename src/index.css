@@ -1,0 +1,8 @@
+/* Paper & ink — everything except fonts (import fonts.css separately).
+   All rules live in the `ds` cascade layer, so any unlayered app CSS wins
+   regardless of specificity. */
+@layer ds;
+
+@import './tokens.css';
+@import './base.css';
+@import './components.css';

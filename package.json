@@ -1,0 +1,70 @@
+{
+  "name": "@lucabonaldo/design",
+  "version": "0.1.0",
+  "description": "Paper & ink: the design system shared by lucabonaldo.dev and its apps.",
+  "license": "MIT",
+  "author": "Luca Bonaldo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucaBonaldoIT/design.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "src",
+    "brand"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./theme": {
+      "types": "./src/theme.d.ts",
+      "default": "./src/theme.js"
+    },
+    "./reveal": {
+      "types": "./src/reveal.d.ts",
+      "default": "./src/reveal.js"
+    },
+    "./theme-init": {
+      "types": "./src/theme-init.d.ts",
+      "default": "./src/theme-init.js"
+    },
+    "./vite": {
+      "types": "./src/vite.d.ts",
+      "default": "./src/vite.js"
+    },
+    "./index.css": "./src/index.css",
+    "./tokens.css": "./src/tokens.css",
+    "./base.css": "./src/base.css",
+    "./components.css": "./src/components.css",
+    "./fonts.css": "./src/fonts.css",
+    "./brand/*": "./brand/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "dev": "vite docs",
+    "build": "vite build docs",
+    "preview": "vite preview docs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "peerDependencies": {
+    "vite": ">=6"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9",
+    "vite": "^8.3.2"
+  }
+}

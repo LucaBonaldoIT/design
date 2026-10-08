@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Paper & ink — base
+   Element defaults and global helpers. Optional: an app with its own reset
+   can import tokens.css and components.css only.
+   ========================================================================== */
+
+@layer ds {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--ds-header-h) + 1rem);
+  }
+
+  body {
+    margin: 0;
+    overflow-x: clip;
+    background: var(--ds-bg);
+    color: var(--ds-text);
+    font-family: var(--ds-font-text);
+    font-size: var(--ds-text-base);
+    line-height: var(--ds-leading);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ds-font-display);
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  ::selection {
+    background: var(--ds-accent-fill);
+    color: var(--ds-on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ds-accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
